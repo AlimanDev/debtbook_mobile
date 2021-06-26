@@ -3,12 +3,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class CodePage extends StatefulWidget {
+class sendCodePage extends StatefulWidget {
   @override
-  _CodePageState createState() => _CodePageState();
+  _sendCodePageState createState() => _sendCodePageState();
 }
 
-class _CodePageState extends State<CodePage> {
+class _sendCodePageState extends State<sendCodePage> {
+
   bool isDialog = false;
   late String phone;
   late String code;
@@ -41,7 +42,7 @@ class _CodePageState extends State<CodePage> {
     return ElevatedButton(child: Text("Войти"), onPressed: () {
       print(controller.text);
       this.isDialog = true;
-      model.setPhone(controller.text);
+      model.setCode(controller.text);
     });
   }
 
@@ -54,10 +55,10 @@ class _CodePageState extends State<CodePage> {
             isDialog = false;
             model.initProvider();
             Future.delayed(Duration.zero, () async {
-              Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(builder: (_) => CodePage()),
-                      (r) => false);
+              // Navigator.pushAndRemoveUntil(
+              //     context,
+              //     MaterialPageRoute(builder: (_) => sendCodePage()),
+              //         (r) => false);
             });
           }
           if (model.loadingFailed && isDialog) {

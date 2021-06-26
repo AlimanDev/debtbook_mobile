@@ -42,9 +42,8 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _submitButton(model) {
     return ElevatedButton(child: Text("Отправить код"), onPressed: () {
-      print(controller.text);
       this.isDialog = true;
-      model.setPhone(controller.text);
+      model.setPhone("+998${controller.text}");
     });
   }
 
@@ -60,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
             Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(
-                    builder: (_) => CodePage(),
+                    builder: (_) => sendCodePage(),
                 ), (r) => false
             );
           });

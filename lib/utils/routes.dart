@@ -1,12 +1,12 @@
+import 'package:debtbook/screens/code_page.dart';
 import 'package:debtbook/screens/error_page.dart';
 import 'package:debtbook/screens/login_page.dart';
-import 'package:debtbook/screens/sign_in_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
   static const login = '/';
-  static const signIn = '/signInPage';
+  static const sendCode = '/sendCode';
   static const signUp = '/signUpPage';
   static const contacts = '/contactsPage';
   static const payments = '/paymentsPage';
@@ -20,9 +20,9 @@ class Routes {
           return MaterialPageRoute(
               builder: (_) => LoginPage(), settings: routeSettings
           );
-        case signIn:
+        case sendCode:
           return MaterialPageRoute(
-              builder: (_) => SignInPage(), settings: routeSettings
+              builder: (_) => sendCodePage(), settings: routeSettings
           );
         default:
           return errorRoute(routeSettings);
