@@ -1,14 +1,13 @@
-import 'dart:convert';
-
 import 'package:debtbook/providers/base_provider.dart';
 import 'package:debtbook/utils/api_query.dart';
+import 'package:debtbook/utils/constants.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginProvider extends BaseProvider {
   late String phone;
   late String code = "";
-  late String token;
 
   LoginProvider(BuildContext context) : super(context);
 
@@ -39,8 +38,9 @@ class LoginProvider extends BaseProvider {
         finishLoading();
       } else {
         if (response.statusCode == 200) {
-          this.token = response.data['token'];
-          print(this.token);
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+          await prefs.setString('token', response.data['token'].toString());
+          userToken = response.data['token'].toString();
           finishLoading();
         } else {
           if (response.data['detail'] != null){

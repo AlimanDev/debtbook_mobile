@@ -32,6 +32,7 @@ dependencies:
   dio:
   http:
   big_tip:
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:

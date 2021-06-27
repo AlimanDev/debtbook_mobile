@@ -1,3 +1,4 @@
+import 'package:debtbook/providers/contacts_provider.dart';
 import 'package:debtbook/providers/login_provider.dart';
 import 'package:debtbook/utils/routes.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => LoginProvider(context)),
+        ChangeNotifierProvider(create: (_) => ContactsProvider(context)),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

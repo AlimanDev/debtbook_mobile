@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'contacts_page.dart';
+
 class sendCodePage extends StatefulWidget {
   @override
   _sendCodePageState createState() => _sendCodePageState();
@@ -55,10 +57,10 @@ class _sendCodePageState extends State<sendCodePage> {
             isDialog = false;
             model.initProvider();
             Future.delayed(Duration.zero, () async {
-              // Navigator.pushAndRemoveUntil(
-              //     context,
-              //     MaterialPageRoute(builder: (_) => sendCodePage()),
-              //         (r) => false);
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (_) => ContactsPage()),
+                      (r) => false);
             });
           }
           if (model.loadingFailed && isDialog) {
